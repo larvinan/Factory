@@ -1,0 +1,431 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: $spacing-lg;
+}
+
+// ============== 车间切换器 ==============
+.workshopBar {
+  white-space: nowrap;
+  padding: $spacing-sm $spacing-lg;
+  display: flex;
+  gap: $spacing-xs;
+}
+
+.workshopChip {
+  display: inline-block;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-round;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  background: $color-bg-card;
+  border: 2rpx solid $color-border;
+  margin-right: $spacing-xs;
+}
+
+.workshopChipActive {
+  color: #fff;
+  background: $color-primary;
+  border-color: $color-primary;
+}
+
+// ============== 快捷功能入口 ==============
+.quickAccess {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 $spacing-lg $spacing-md;
+  padding: $spacing-md 0;
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+}
+
+.quickItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.quickIcon {
+  font-size: 48rpx;
+}
+
+.quickText {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+// ============== 紧急告警横幅 ==============
+.alarmBanner {
+  margin: $spacing-md $spacing-lg 0;
+  padding: $spacing-md $spacing-lg;
+  background: $gradient-alarm;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  box-shadow: 0 4rpx 16rpx rgba(245, 63, 63, 0.3);
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.alarmIcon {
+  font-size: 36rpx;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.alarmText {
+  flex: 1;
+  color: $color-text-white;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  @include text-ellipsis;
+}
+
+.alarmArrow {
+  color: $color-text-white;
+  font-size: $font-size-md;
+}
+
+// ============== 系统状态卡片 ==============
+.statusCard {
+  margin: $spacing-md $spacing-lg 0;
+  padding: $spacing-lg;
+  background: $gradient-header;
+  border-radius: $radius-lg;
+  color: $color-text-white;
+  box-shadow: 0 4rpx 16rpx rgba(26, 109, 255, 0.25);
+
+  &.offline {
+    background: linear-gradient(135deg, #86909c 0%, #4e5969 100%);
+    box-shadow: 0 4rpx 16rpx rgba(134, 144, 156, 0.25);
+  }
+
+  &.alarmState {
+    background: $gradient-alarm;
+    box-shadow: 0 4rpx 16rpx rgba(245, 63, 63, 0.3);
+  }
+}
+
+.statusTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.statusLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.statusDot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 12rpx rgba(255, 255, 255, 0.8);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.statusText {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.updateTime {
+  font-size: $font-size-xs;
+  opacity: 0.85;
+}
+
+.mineEntry {
+  font-size: $font-size-sm;
+  color: $color-text-white;
+  opacity: 0.9;
+  padding: 4rpx 16rpx;
+  border-radius: $radius-round;
+  background: rgba(255, 255, 255, 0.18);
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.statusDesc {
+  font-size: $font-size-sm;
+  opacity: 0.9;
+  line-height: $line-height-normal;
+}
+
+// ============== 安全评分卡片 ==============
+.scoreCard {
+  margin: $spacing-md $spacing-lg 0;
+  padding: $spacing-lg $spacing-lg $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.scoreTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.scoreContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreTips {
+  margin-top: $spacing-sm;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  text-align: center;
+}
+
+// ============== AI 智能分析卡片 ==============
+.aiCard {
+  margin: $spacing-md $spacing-lg 0;
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: $radius-lg;
+  color: $color-text-white;
+  box-shadow: 0 4rpx 16rpx rgba(102, 126, 234, 0.3);
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.aiHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-sm;
+}
+
+.aiTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.aiIcon {
+  font-size: 40rpx;
+}
+
+.aiTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.aiArrow {
+  font-size: $font-size-lg;
+  opacity: 0.8;
+}
+
+.aiDesc {
+  font-size: $font-size-xs;
+  opacity: 0.85;
+  margin-bottom: $spacing-md;
+  display: block;
+  line-height: 1.5;
+}
+
+.aiStats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-sm;
+}
+
+.aiStatItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.aiStatValue {
+  font-size: 36rpx;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+
+  &.aiStatDanger {
+    color: #ffd43b;
+  }
+}
+
+.aiStatLabel {
+  font-size: $font-size-xs;
+  opacity: 0.85;
+}
+
+.aiStatDivider {
+  width: 2rpx;
+  height: 40rpx;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.aiAction {
+  text-align: center;
+}
+
+.aiActionText {
+  font-size: $font-size-sm;
+  opacity: 0.9;
+}
+
+// ============== 传感器卡片网格 ==============
+.sectionTitle {
+  margin: $spacing-lg $spacing-lg $spacing-sm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionTitleLeft {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-xs;
+}
+
+.sectionTitleText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.sectionSubText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.sectionAction {
+  font-size: $font-size-sm;
+  color: $color-primary;
+}
+
+// —— 传感器概览统计条 ——
+.sensorSummary {
+  margin: 0 $spacing-lg $spacing-md;
+  padding: $spacing-sm $spacing-xs;
+  background: #fff;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.summaryItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-xs 0;
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 1rpx;
+    background: $color-border;
+  }
+}
+
+.summaryNum {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  line-height: 1.2;
+}
+
+.summaryLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 2rpx;
+}
+
+.summarySafe .summaryNum {
+  color: #00b42a;
+}
+
+.summaryWarn .summaryNum {
+  color: #ffb820;
+}
+
+.summaryAlarm .summaryNum {
+  color: #f53f3f;
+}
+
+.sensorGrid {
+  padding: 0 $spacing-lg;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+}
+
+.sensorGrid .fullCol {
+  grid-column: 1 / -1;
+}
+
+// —— 底部数据更新时间 ——
+.footerTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  padding: $spacing-lg 0 $spacing-md;
+}
+
+.footerDot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #00b42a;
+  box-shadow: 0 0 0 4rpx rgba(0, 180, 42, 0.18);
+}
+
+.footerText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+// ============== 空状态 ==============
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl $spacing-lg;
+  color: $color-text-tertiary;
+}
+
+.emptyText {
+  font-size: $font-size-sm;
+  margin-top: $spacing-sm;
+}
+
+.factoryChip {
+  background: rgba(26, 109, 255, 0.08);
+  border-color: rgba(26, 109, 255, 0.35);
+  color: #1a6dff;
+  font-weight: 600;
+}

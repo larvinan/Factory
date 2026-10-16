@@ -1,0 +1,8 @@
+path: E:/竞赛/揭榜挂帅擂台赛/安全帽识别/datasets
+train: images/train
+val: images/val
+
+nc: 2
+names: ['helmet', 'no_helmet']
+
+class_weights: [1.0, 2.5]

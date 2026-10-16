@@ -1,0 +1,212 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding: $spacing-md $spacing-lg calc($spacing-xl * 2);
+}
+
+.section {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  &::before {
+    content: '';
+    width: 6rpx;
+    height: 24rpx;
+    background: $color-primary;
+    border-radius: $radius-round;
+  }
+}
+
+.required {
+  color: $color-status-alarm;
+  margin-left: 4rpx;
+}
+
+// ============== 图片选择 ==============
+.imagePicker {
+  width: 100%;
+  height: 320rpx;
+  background: $color-bg-hover;
+  border-radius: $radius-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  border: 2rpx dashed $color-border;
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+.pickedImageWrap {
+  width: 100%;
+  height: 320rpx;
+  border-radius: $radius-md;
+  overflow: hidden;
+  position: relative;
+}
+
+.pickedImage {
+  width: 100%;
+  height: 100%;
+}
+
+.removeBtn {
+  position: absolute;
+  top: $spacing-xs;
+  right: $spacing-xs;
+  width: 48rpx;
+  height: 48rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.pickIcon {
+  font-size: 64rpx;
+  color: $color-text-tertiary;
+}
+
+.pickText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+// ============== 类型选择 ==============
+.typeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-sm;
+}
+
+.typeItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+  padding: $spacing-sm $spacing-xs;
+  background: $color-bg-hover;
+  border-radius: $radius-md;
+  border: 2rpx solid transparent;
+  transition: all $transition-base;
+
+  &.active {
+    background: rgba(26, 109, 255, 0.08);
+    border-color: $color-primary;
+  }
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+.typeIcon {
+  font-size: 40rpx;
+}
+
+.typeLabel {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  text-align: center;
+  white-space: nowrap;
+
+  &.active {
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// ============== 表单 ==============
+.formRow {
+  margin-bottom: $spacing-md;
+}
+
+.formLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-xs;
+  display: block;
+}
+
+.formInput {
+  width: 100%;
+  height: $button-height-md;
+  padding: 0 $spacing-md;
+  background: $color-bg-page;
+  border-radius: $radius-sm;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  box-sizing: border-box;
+  border: 1rpx solid $color-border;
+}
+
+.formTextarea {
+  width: 100%;
+  min-height: 160rpx;
+  padding: $spacing-sm $spacing-md;
+  background: $color-bg-page;
+  border-radius: $radius-sm;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  box-sizing: border-box;
+  border: 1rpx solid $color-border;
+}
+
+// ============== 底部提交按钮 ==============
+.footerBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-md $spacing-lg;
+  padding-bottom: calc($spacing-md + env(safe-area-inset-bottom));
+  background: $color-bg-card;
+  box-shadow: $shadow-float;
+  z-index: 20;
+}
+
+.submitBtn {
+  width: 100%;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  background: $gradient-primary;
+  color: $color-text-white;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+
+  &::after { border: none; }
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+
+  &.disabled {
+    background: $color-text-disabled;
+    pointer-events: none;
+  }
+}

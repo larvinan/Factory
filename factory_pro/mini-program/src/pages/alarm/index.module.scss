@@ -1,0 +1,238 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: $spacing-xl;
+}
+
+// ============== 顶部 Tab 筛选栏 ==============
+.tabBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: $color-bg-card;
+  display: flex;
+  padding: $spacing-sm $spacing-lg;
+  gap: $spacing-xs;
+  box-shadow: $shadow-card;
+}
+
+.tabItem {
+  flex: 1;
+  height: $button-height-sm;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  background: $color-bg-hover;
+  border-radius: $radius-round;
+  transition: all $transition-base;
+  white-space: nowrap;
+  border: 2rpx solid transparent;
+
+  &.active {
+    color: $color-primary;
+    background: rgba(26, 109, 255, 0.1);
+    border-color: $color-primary;
+    font-weight: $font-weight-medium;
+  }
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+// ============== 告警列表 ==============
+.list {
+  padding: $spacing-md $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.alarmItem {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-md $spacing-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+  gap: $spacing-md;
+  position: relative;
+  overflow: hidden;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.92;
+  }
+}
+
+.alarmBar {
+  width: 8rpx;
+  border-radius: $radius-round;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.bar_urgent { background: $color-status-alarm; }
+.bar_warning { background: $color-status-warn; }
+.bar_info { background: $color-primary; }
+
+.alarmContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.alarmHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-xs;
+  gap: $spacing-sm;
+}
+
+.alarmTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  flex: 1;
+  min-width: 0;
+  @include text-ellipsis;
+}
+
+.alarmDesc {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-sm;
+  @include text-ellipsis-multi(2);
+}
+
+.alarmMeta {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4rpx;
+  white-space: nowrap;
+}
+
+.valueTag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2rpx;
+  padding: 2rpx $spacing-xs;
+  border-radius: $radius-xs;
+  background: rgba(245, 63, 63, 0.08);
+
+  .valueNum {
+    font-size: $font-size-sm;
+    color: $color-status-alarm;
+    font-weight: $font-weight-semibold;
+  }
+
+  .valueUnit {
+    font-size: $font-size-xs;
+    color: $color-status-alarm;
+  }
+}
+
+// ============== 空状态 ==============
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl * 2 $spacing-lg;
+  color: $color-text-tertiary;
+}
+
+.emptyIcon {
+  font-size: 96rpx;
+  margin-bottom: $spacing-md;
+}
+
+.emptyText {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+}
+
+.emptySub {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-top: $spacing-xs;
+}
+
+// ============== 批量处理模式 ==============
+.batchBtn {
+  margin-left: auto;
+  padding: $spacing-xs $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-primary;
+  white-space: nowrap;
+}
+
+.checkbox {
+  width: 40rpx;
+  height: 40rpx;
+  border: 4rpx solid $color-border;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: $spacing-sm;
+  flex-shrink: 0;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.checkboxChecked {
+  background: $color-primary;
+  border-color: $color-primary;
+}
+
+.alarmItemSelected {
+  background: rgba(26, 109, 255, 0.05);
+}
+
+.batchBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background: $color-bg-card;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.batchSelectAll {
+  flex-shrink: 0;
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+}
+
+.batchActionBtn {
+  flex: 1;
+  height: $button-height-md;
+  @include flex-center;
+  background: $color-primary;
+  color: #fff;
+  border-radius: $radius-button;
+  font-size: $font-size-md;
+}
+
+.batchActionDisabled {
+  background: $color-text-disabled;
+}

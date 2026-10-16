@@ -1,0 +1,447 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: $color-bg-page;
+  /* 留出底部固定按钮区高度 */
+  padding-bottom: 220rpx;
+  box-sizing: border-box;
+}
+
+/* 任务信息卡片 */
+.infoCard {
+  background-color: #fff;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  padding: $spacing-lg;
+  margin: $spacing-md;
+  box-sizing: border-box;
+}
+
+.infoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-md;
+  border-bottom: 1rpx solid $color-border;
+}
+
+.infoTitle {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: $color-text-primary;
+  flex: 1;
+  min-width: 0;
+  margin-right: $spacing-sm;
+  line-height: 1.4;
+}
+
+.infoRow {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: $spacing-sm;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.infoLabel {
+  width: 160rpx;
+  flex-shrink: 0;
+  color: $color-text-secondary;
+}
+
+.infoValue {
+  flex: 1;
+  min-width: 0;
+  color: $color-text-primary;
+  word-break: break-all;
+}
+
+/* 巡检项清单 */
+.itemsCard {
+  background-color: #fff;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  padding: $spacing-lg;
+  margin: $spacing-md;
+  box-sizing: border-box;
+}
+
+.sectionTitle {
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1rpx solid $color-border;
+}
+
+.sectionTitleText {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.itemRow {
+  display: flex;
+  align-items: center;
+  padding: $spacing-sm 0;
+  border-bottom: 1rpx solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.checkbox {
+  width: 36rpx;
+  height: 36rpx;
+  border: 2rpx solid #d9d9d9;
+  border-radius: $radius-sm;
+  margin-right: $spacing-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.checkboxChecked {
+  background-color: $color-primary;
+  border-color: $color-primary;
+}
+
+.checkIcon {
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 1;
+}
+
+.itemName {
+  font-size: 28rpx;
+  color: $color-text-primary;
+  flex: 1;
+  min-width: 0;
+}
+
+.requiredMark {
+  color: #f5222d;
+  margin-left: 4rpx;
+  font-size: 28rpx;
+  line-height: 1;
+}
+
+/* 状态标签 */
+.statusTag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  font-size: 24rpx;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+  line-height: 1.4;
+
+  &.status-pending { background-color: rgba(153, 153, 153, 0.1); color: #999999; }
+  &.status-assigned { background-color: rgba(24, 144, 255, 0.1); color: #1890ff; }
+  &.status-in-progress { background-color: rgba(255, 153, 0, 0.1); color: #ff9900; }
+  &.status-completed { background-color: rgba(82, 196, 26, 0.1); color: #52c41a; }
+  &.status-cancelled { background-color: rgba(245, 34, 45, 0.1); color: #f5222d; }
+}
+
+/* 优先级标签 */
+.priorityTag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  font-size: 24rpx;
+  border-radius: $radius-sm;
+  line-height: 1.4;
+
+  &.tag-urgent { background-color: rgba(245, 34, 45, 0.1); color: #f5222d; }
+  &.tag-high { background-color: rgba(255, 153, 0, 0.1); color: #ff9900; }
+  &.tag-normal { background-color: rgba(24, 144, 255, 0.1); color: #1890ff; }
+  &.tag-low { background-color: rgba(153, 153, 153, 0.1); color: #999999; }
+}
+
+/* 底部固定操作按钮区 */
+.actionBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: stretch;
+  background-color: #fff;
+  padding: $spacing-md $spacing-lg;
+  box-shadow: 0 -2rpx 8rpx rgba(0, 0, 0, 0.06);
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+/* 主按钮：蓝色 */
+.primaryBtn {
+  flex: 1;
+  background-color: $color-primary;
+  border-radius: $radius-md;
+  padding: $spacing-sm 0;
+  text-align: center;
+  margin-left: $spacing-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryBtnFull {
+  flex: 1;
+  background-color: $color-primary;
+  border-radius: $radius-md;
+  padding: $spacing-sm 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryBtnText {
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* 次按钮：灰色 */
+.secondaryBtn {
+  flex: 1;
+  background-color: #f5f5f5;
+  border-radius: $radius-md;
+  padding: $spacing-sm 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondaryBtnText {
+  color: $color-text-secondary;
+  font-size: 30rpx;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* 进行中：备注输入框 + 完成按钮 */
+.inProgressActions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.remarkInput {
+  margin-bottom: $spacing-sm;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 120rpx;
+  background-color: #f5f5f5;
+  border-radius: $radius-md;
+  padding: $spacing-sm;
+  font-size: 28rpx;
+  color: $color-text-primary;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+/* 空状态 */
+.empty {
+  padding: $spacing-xl 0;
+  text-align: center;
+}
+
+.emptyText {
+  font-size: 28rpx;
+  color: $color-text-secondary;
+}
+
+/* ============== 巡检点位打卡 ============== */
+.pointsCard {
+  background-color: #fff;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  padding: $spacing-lg;
+  margin: $spacing-md;
+  box-sizing: border-box;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1rpx solid $color-divider;
+}
+
+.progressText {
+  font-size: 26rpx;
+  color: $color-text-secondary;
+  font-weight: 500;
+}
+
+/* 进度条 */
+.progressBar {
+  width: 100%;
+  height: 12rpx;
+  background-color: #f0f0f0;
+  border-radius: $radius-round;
+  overflow: hidden;
+  margin-bottom: $spacing-md;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #1a6dff 0%, #52c41a 100%);
+  border-radius: $radius-round;
+  transition: width 0.3s ease;
+}
+
+/* 扫码打卡按钮 */
+.scanBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  background: linear-gradient(135deg, #1a6dff 0%, #4f8cff 100%);
+  border-radius: $radius-md;
+  padding: 24rpx 0;
+  margin-bottom: $spacing-md;
+  box-shadow: 0 4rpx 12rpx rgba(26, 109, 255, 0.3);
+
+  &:active {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+}
+
+.scanIcon {
+  font-size: 40rpx;
+  line-height: 1;
+}
+
+.scanBtnText {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+}
+
+/* 点位列表 */
+.pointList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pointItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-md 0;
+  border-bottom: 1rpx solid $color-divider;
+  transition: all 0.2s;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.pointChecked {
+  opacity: 0.7;
+}
+
+.pointOptional {
+  opacity: 0.85;
+}
+
+.pointCheckbox {
+  width: 44rpx;
+  height: 44rpx;
+  border: 3rpx solid #d9d9d9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: #fff;
+  margin-top: 4rpx;
+  transition: all 0.2s;
+}
+
+.pointCheckboxDone {
+  background-color: #52c41a;
+  border-color: #52c41a;
+}
+
+.pointInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.pointNameRow {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.pointName {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: $color-text-primary;
+  flex: 1;
+  min-width: 0;
+}
+
+.pointRequired {
+  font-size: 22rpx;
+  color: #f5222d;
+  background-color: rgba(245, 34, 45, 0.08);
+  padding: 2rpx 10rpx;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+}
+
+.pointOptionalTag {
+  font-size: 22rpx;
+  color: #999;
+  background-color: rgba(153, 153, 153, 0.08);
+  padding: 2rpx 10rpx;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+}
+
+.pointCode {
+  font-size: 24rpx;
+  color: $color-text-tertiary;
+  font-family: monospace;
+}
+
+.pointLocation {
+  font-size: 24rpx;
+  color: $color-text-secondary;
+  line-height: 1.4;
+}
+
+.checkinTime {
+  font-size: 24rpx;
+  color: #52c41a;
+  margin-top: 4rpx;
+}
+
+.tapToCheckin {
+  font-size: 24rpx;
+  color: $color-primary;
+  margin-top: 4rpx;
+}

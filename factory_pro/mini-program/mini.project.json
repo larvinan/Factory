@@ -1,0 +1,14 @@
+{
+  "format": 2,
+  "appid": "2021006179640854",
+  "projectName": "智慧工厂监控",
+  "extends": {
+    "alipay": {
+      "permission": {
+        "scope.camera": {
+          "desc": "用于安全帽检测拍照识别"
+        }
+      }
+    }
+  }
+}

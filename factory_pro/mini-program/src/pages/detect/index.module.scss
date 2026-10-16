@@ -1,0 +1,966 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding: $spacing-md $spacing-lg $spacing-xl;
+  background: $color-bg-page;
+}
+
+// ============== 统计卡片 ==============
+.statsCard {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  color: $color-text-white;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.3);
+  margin-bottom: $spacing-md;
+}
+
+.statsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-lg;
+}
+
+.statsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.statsDate {
+  font-size: $font-size-sm;
+  opacity: 0.8;
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: $spacing-md;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.statValue {
+  font-size: 48rpx;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+
+  &.danger {
+    color: #ffd43b;
+  }
+}
+
+.statLabel {
+  font-size: $font-size-xs;
+  opacity: 0.85;
+}
+
+.statDivider {
+  width: 2rpx;
+  height: 48rpx;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.progressBar {
+  height: 12rpx;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: $radius-round;
+  overflow: hidden;
+  margin-bottom: $spacing-xs;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #51cf66 0%, #37b24d 100%);
+  border-radius: $radius-round;
+  transition: width 0.5s ease;
+}
+
+.compliantRate {
+  font-size: $font-size-xs;
+  opacity: 0.9;
+  text-align: right;
+}
+
+// ============== 环境安全分析卡片 ==============
+.envCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.envHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.envTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.envIcon {
+  font-size: 36rpx;
+}
+
+.envTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.envLevelBadge {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 4rpx 16rpx;
+  border-radius: $radius-round;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+}
+
+.envLoading {
+  padding: $spacing-lg;
+  text-align: center;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+}
+
+.envScoreRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: $color-bg-hover;
+  border-radius: $radius-md;
+  margin-bottom: $spacing-md;
+}
+
+.envScoreWrap {
+  display: flex;
+  align-items: baseline;
+  gap: 4rpx;
+}
+
+.envScoreValue {
+  font-size: 56rpx;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  line-height: 1;
+}
+
+.envScoreUnit {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.envMessage {
+  flex: 1;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  line-height: 1.5;
+}
+
+.envItems {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+}
+
+.envItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-sm $spacing-md;
+  background: $color-bg-hover;
+  border-radius: $radius-sm;
+}
+
+.envItemLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.envItemDot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+}
+
+.envItemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rpx;
+}
+
+.envItemLabel {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.envItemThreshold {
+  font-size: 20rpx;
+  color: $color-text-tertiary;
+}
+
+.envItemRight {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.envItemValue {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.envItemStatus {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+}
+
+// ============== 应对措施 ==============
+.envActions {
+  background: rgba(255, 125, 0, 0.05);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-md;
+  border: 2rpx solid rgba(255, 125, 0, 0.2);
+}
+
+.envActionsTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.envActionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  background: $color-bg-card;
+  border-radius: $radius-sm;
+  margin-bottom: $spacing-xs;
+
+  &.envActionHigh {
+    border-left: 6rpx solid $color-error;
+  }
+}
+
+.envActionIcon {
+  font-size: 32rpx;
+  line-height: 1.5;
+}
+
+.envActionContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.envActionHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.envActionDevice {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.envActionBadge {
+  font-size: 20rpx;
+  padding: 2rpx 12rpx;
+  border-radius: $radius-round;
+
+  &.envActionOn {
+    color: $color-success;
+    background: rgba(0, 180, 42, 0.1);
+  }
+
+  &.envActionOff {
+    color: $color-error;
+    background: rgba(245, 63, 63, 0.1);
+  }
+}
+
+.envPriorityHigh {
+  font-size: 20rpx;
+  color: $color-text-white;
+  background: $color-error;
+  padding: 2rpx 12rpx;
+  border-radius: $radius-round;
+}
+
+.envActionReason {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  line-height: 1.5;
+}
+
+// ============== 已执行联动 ==============
+.envExecuted {
+  background: rgba(0, 180, 42, 0.05);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-md;
+  border: 2rpx solid rgba(0, 180, 42, 0.2);
+}
+
+.envExecutedTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-success;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.envExecutedItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-xs 0;
+}
+
+.envExecutedText {
+  font-size: $font-size-xs;
+  color: $color-text-primary;
+  flex: 1;
+}
+
+// ============== 底部操作 ==============
+.envFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: $spacing-sm;
+  border-top: 2rpx solid $color-divider;
+}
+
+.envAutoControl {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.envAutoControlLabel {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+}
+
+.envRefreshBtn {
+  font-size: $font-size-sm;
+  color: $color-primary;
+}
+
+// ============== 导出报告 ==============
+.exportRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  margin-top: $spacing-md;
+  background: rgba(102, 126, 234, 0.08);
+  border-radius: $radius-md;
+  border: 2rpx solid rgba(102, 126, 234, 0.2);
+}
+
+.exportLabel {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: #4e5969;
+  flex-shrink: 0;
+}
+
+.exportBtns {
+  display: flex;
+  gap: $spacing-xs;
+}
+
+.exportBtn {
+  padding: 6rpx 20rpx;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border-radius: $radius-round;
+  color: $color-text-white;
+
+  &:active {
+    opacity: 0.85;
+    transform: scale(0.97);
+  }
+
+  &.exporting {
+    opacity: 0.6;
+  }
+}
+
+.exportWord {
+  background: linear-gradient(135deg, #1a6dff 0%, #4080ff 100%);
+  box-shadow: 0 2rpx 8rpx rgba(26, 109, 255, 0.35);
+}
+
+.exportPdf {
+  background: linear-gradient(135deg, #f53f3f 0%, #ff7d00 100%);
+  box-shadow: 0 2rpx 8rpx rgba(245, 63, 63, 0.35);
+}
+
+// ============== 通用区块 ==============
+.section {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.sectionDesc {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-md;
+  display: block;
+  line-height: 1.5;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.refreshBtn {
+  font-size: $font-size-sm;
+  color: $color-primary;
+}
+
+// ============== 摄像头实时监控 ==============
+.cameraWrap {
+  position: relative;
+  width: 100%;
+  height: 480rpx;
+  border-radius: $radius-md;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: $spacing-md;
+}
+
+.camera {
+  width: 100%;
+  height: 100%;
+}
+
+.cameraMask {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.cameraMaskText {
+  color: $color-text-white;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  padding: 8rpx 24rpx;
+  background: rgba(26, 109, 255, 0.8);
+  border-radius: $radius-round;
+}
+
+.liveAlertBadge {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  padding: 8rpx 20rpx;
+  background: rgba(245, 63, 63, 0.92);
+  color: $color-text-white;
+  font-size: $font-size-xs;
+  border-radius: $radius-round;
+  box-shadow: 0 4rpx 12rpx rgba(245, 63, 63, 0.4);
+}
+
+.liveResult {
+  margin-top: $spacing-md;
+}
+
+// ============== 图片选择 ==============
+.imagePicker {
+  width: 100%;
+  height: 360rpx;
+  background: $color-bg-hover;
+  border-radius: $radius-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  border: 2rpx dashed $color-border;
+  margin-bottom: $spacing-md;
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+.pickIcon {
+  font-size: 72rpx;
+}
+
+.pickText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.pickedImageWrap {
+  width: 100%;
+  height: 360rpx;
+  border-radius: $radius-md;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: $spacing-md;
+}
+
+.pickedImage {
+  width: 100%;
+  height: 100%;
+}
+
+.removeBtn {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  width: 48rpx;
+  height: 48rpx;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+// ============== 检测按钮 ==============
+.detectBtn {
+  width: 100%;
+  height: 96rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: $color-text-white;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.disabled,
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+// ============== 检测结果 ==============
+.resultSection {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.resultSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: $color-bg-hover;
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+.resultItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.resultIcon {
+  font-size: 36rpx;
+}
+
+.resultValue {
+  font-size: 40rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+
+  &.compliant {
+    color: #37b24d;
+  }
+
+  &.danger {
+    color: #f03e3e;
+  }
+}
+
+.resultLabel {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+.personList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.personItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: $color-bg-hover;
+  border-radius: $radius-sm;
+  border-left: 6rpx solid #37b24d;
+
+  &.noHelmet {
+    border-left-color: #f03e3e;
+    background: rgba(240, 62, 62, 0.08);
+  }
+}
+
+.personIdx {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  min-width: 48rpx;
+}
+
+.personStatus {
+  flex: 1;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+}
+
+.personConf {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+// ============== 告警提示 + 处置建议 ==============
+.suggestionBox {
+  margin-top: $spacing-md;
+  background: rgba(245, 63, 63, 0.05);
+  border: 2rpx solid rgba(245, 63, 63, 0.2);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+}
+
+.alertMessage {
+  display: block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: #f03e3e;
+  margin-bottom: $spacing-sm;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1rpx solid rgba(245, 63, 63, 0.15);
+}
+
+.suggestionTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.suggestionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  background: $color-bg-card;
+  border-radius: $radius-sm;
+  margin-bottom: $spacing-xs;
+
+  &.suggestionHigh {
+    border-left: 6rpx solid #f03e3e;
+  }
+}
+
+.suggestionPriority {
+  flex-shrink: 0;
+  font-size: 20rpx;
+  font-weight: $font-weight-medium;
+  padding: 4rpx 12rpx;
+  border-radius: $radius-round;
+  line-height: 1.4;
+}
+
+.suggestionText {
+  flex: 1;
+  font-size: $font-size-xs;
+  color: $color-text-primary;
+  line-height: 1.6;
+}
+
+.suggestionFooter {
+  margin-top: $spacing-sm;
+  padding-top: $spacing-sm;
+  border-top: 1rpx solid rgba(245, 63, 63, 0.1);
+  display: flex;
+  justify-content: flex-end;
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.suggestionFooterText {
+  font-size: $font-size-sm;
+  color: #f03e3e;
+  font-weight: $font-weight-medium;
+}
+
+.noResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-lg;
+}
+
+.noResultIcon {
+  font-size: 56rpx;
+}
+
+.noResultText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.errorBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  background: rgba(240, 62, 62, 0.08);
+  border-radius: $radius-md;
+  border: 2rpx solid rgba(240, 62, 62, 0.3);
+}
+
+.errorIcon {
+  font-size: 48rpx;
+}
+
+.errorText {
+  font-size: $font-size-md;
+  color: #f03e3e;
+  font-weight: $font-weight-medium;
+}
+
+.errorHint {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  text-align: center;
+  line-height: 1.5;
+}
+
+// ============== 历史记录 ==============
+.recordList {
+  max-height: 600rpx;
+}
+
+.recordItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md 0;
+  border-bottom: 2rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.recordLeft {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.recordTime {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.recordDevice {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+.recordRight {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.recordTotal {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.recordDanger {
+  font-size: $font-size-xs;
+  color: #f03e3e;
+  background: rgba(240, 62, 62, 0.1);
+  padding: 4rpx 12rpx;
+  border-radius: $radius-round;
+}
+
+.recordOK {
+  font-size: $font-size-xs;
+  color: #37b24d;
+  background: rgba(55, 178, 77, 0.1);
+  padding: 4rpx 12rpx;
+  border-radius: $radius-round;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-xl;
+}
+
+.emptyIcon {
+  font-size: 72rpx;
+}
+
+.emptyText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+// ============== RK3568 远程视频流 ==============
+.sourceTabs {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+}
+
+.sourceTab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 0;
+  border-radius: $radius-md;
+  background: rgba(134, 144, 156, 0.1);
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  transition: all 0.2s ease-out;
+}
+
+.sourceTabActive {
+  background: rgba(26, 109, 255, 0.12);
+  color: #1a6dff;
+  font-weight: $font-weight-semibold;
+}
+
+.streamPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+}
+
+.streamPlaceholderIcon {
+  font-size: 72rpx;
+  opacity: 0.7;
+}
+
+.streamPlaceholderText {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: $font-size-sm;
+}
+
+.streamMeta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8rpx 20rpx;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+}
+
+.streamMetaText {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: $font-size-xs;
+}
+
+.autoDetectRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 24rpx;
+  border-radius: $radius-md;
+  background: rgba(26, 109, 255, 0.06);
+  margin-bottom: $spacing-md;
+}
+
+.autoDetectInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.autoDetectLabel {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.autoDetectDesc {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
