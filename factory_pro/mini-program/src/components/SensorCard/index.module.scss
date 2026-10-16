@@ -1,0 +1,198 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  position: relative;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  transition: all $transition-base;
+
+  &.clickable:active {
+    transform: scale(0.98);
+    opacity: 0.92;
+  }
+}
+
+// 左侧主题色条
+.accent {
+  width: 8rpx;
+  flex-shrink: 0;
+  background: $color-primary;
+}
+
+.body {
+  flex: 1;
+  padding: $spacing-sm $spacing-md $spacing-sm $spacing-sm;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  min-width: 0;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.iconBox {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: $radius-md;
+  @include flex-center;
+  background: rgba(26, 109, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.icon {
+  font-size: 32rpx;
+  line-height: 1;
+}
+
+.meta {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  font-weight: $font-weight-medium;
+  @include text-ellipsis;
+}
+
+.riskTag {
+  padding: 4rpx 12rpx;
+  border-radius: $radius-round;
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+  flex-shrink: 0;
+}
+
+.riskDot {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+}
+
+.riskText {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}
+
+.risk_safe {
+  background: rgba(0, 180, 42, 0.12);
+  .riskDot { background: $color-risk-safe; }
+  .riskText { color: $color-risk-safe; }
+}
+
+.risk_warning {
+  background: rgba(255, 125, 0, 0.12);
+  .riskDot { background: $color-risk-warning; }
+  .riskText { color: $color-risk-warning; }
+}
+
+.risk_alarm {
+  background: rgba(245, 63, 63, 0.12);
+  .riskDot { background: $color-risk-alarm; }
+  .riskText { color: $color-risk-alarm; }
+}
+
+.valueWrap {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-xs;
+}
+
+.value {
+  font-size: 52rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  line-height: 1.1;
+}
+
+.flameAlarm {
+  color: $color-risk-alarm;
+  animation: blink 0.8s ease-in-out infinite;
+}
+
+.unit {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.progressBg {
+  height: 12rpx;
+  background: $color-divider;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: $radius-round;
+  transition: width 0.6s ease;
+}
+
+.fill_safe {
+  background: linear-gradient(90deg, rgba(0, 180, 42, 0.45), $color-risk-safe);
+}
+
+.fill_warning {
+  background: linear-gradient(90deg, rgba(255, 125, 0, 0.45), $color-risk-warning);
+}
+
+.fill_alarm {
+  background: linear-gradient(90deg, rgba(245, 63, 63, 0.45), $color-risk-alarm);
+}
+
+// ===== 每种传感器主题色（accent 色条 + iconBox 背景）=====
+.type_temperature {
+  .accent { background: #ff6b35; }
+  .iconBox { background: rgba(255, 107, 53, 0.14); }
+}
+
+.type_humidity {
+  .accent { background: #2e9ef0; }
+  .iconBox { background: rgba(46, 158, 240, 0.14); }
+}
+
+.type_gas {
+  .accent { background: #a855f7; }
+  .iconBox { background: rgba(168, 85, 247, 0.14); }
+}
+
+.type_smoke {
+  .accent { background: #64748b; }
+  .iconBox { background: rgba(100, 116, 139, 0.14); }
+}
+
+.type_flame {
+  .accent { background: #ef4444; }
+  .iconBox { background: rgba(239, 68, 68, 0.14); }
+}
+
+.type_agv {
+  .accent { background: #06b6d4; }
+  .iconBox { background: rgba(6, 182, 212, 0.14); }
+}
+
+.type_goods {
+  .accent { background: #22c55e; }
+  .iconBox { background: rgba(34, 197, 94, 0.14); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

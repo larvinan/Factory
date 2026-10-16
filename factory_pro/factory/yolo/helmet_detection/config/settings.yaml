@@ -1,0 +1,78 @@
+model:
+  type: 'pt'
+  path: 'scripts/runs/models/helmet_detection-8/weights/best.pt'
+  onnx_path: 'scripts/runs/models/helmet_detection-8/weights/best.onnx'
+  pt_path: 'scripts/runs/models/helmet_detection-8/weights/best.pt'
+  input_size: 640
+  conf_threshold: 0.10    # 改为最佳F1对应的conf
+  iou_threshold: 0.60       # 改为最佳iou
+  num_classes: 2
+  class_names:
+    - 'helmet'
+    - 'no_helmet'
+    
+
+camera:
+  device: 0
+  width: 1920
+  height: 1080
+  fps: 30
+  format: 'YUYV'
+  max_reconnect_attempts: 5
+  reconnect_delay: 5.0
+
+mqtt:
+  enabled: true
+  broker: 'localhost'
+  port: 1883
+  topic: 'ai_safety/alerts'
+  username: ''
+  password: ''
+  qos: 1
+  keepalive: 60
+
+zones:
+  hot_zone_1:
+    name: '焊接作业区'
+    coordinates:
+      - [100, 100]
+      - [500, 100]
+      - [500, 700]
+      - [100, 700]
+    color: [255, 0, 0]
+    alert_level: 'serious'
+  hot_zone_2:
+    name: '高空作业区'
+    coordinates:
+      - [700, 200]
+      - [1100, 200]
+      - [1100, 600]
+      - [700, 600]
+    color: [0, 255, 0]
+    alert_level: 'emergency'
+
+detection:
+  helmet_iou_threshold: 0.25
+  head_ratio: 0.25
+  enable_zone_detection: true
+  enable_helmet_detection: true
+
+alert:
+  enabled: true
+  local_sound: true
+  local_light: true
+  mqtt_enabled: true
+  risk_threshold: 10
+  emergency_threshold: 30
+
+logging:
+  level: 'INFO'
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  file_path: 'logs/helmet_detection.log'
+  max_file_size: 10485760
+  backup_count: 5
+
+benchmark:
+  enabled: false
+  warmup_iterations: 10
+  measure_iterations: 100

@@ -1,0 +1,117 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.svgWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // 使用 border-radius + overflow 构建半圆容器
+  border-top-left-radius: 9999rpx;
+  border-top-right-radius: 9999rpx;
+  overflow: hidden;
+  background: $color-divider;
+}
+
+.arcBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $color-divider;
+  border-top-left-radius: 9999rpx;
+  border-top-right-radius: 9999rpx;
+}
+
+.arcFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top-left-radius: 9999rpx;
+  border-top-right-radius: 9999rpx;
+  color: $color-score-low;
+}
+
+.fill_low { color: $color-score-low; }
+.fill_mid { color: $color-score-mid; }
+.fill_high { color: $color-score-high; }
+.fill_critical { color: $color-score-critical; }
+
+.arcMask {
+  position: absolute;
+  top: 24%;
+  left: 12%;
+  right: 12%;
+  bottom: 0;
+  background: $color-bg-card;
+  border-top-left-radius: 9999rpx;
+  border-top-right-radius: 9999rpx;
+}
+
+.center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 8rpx;
+}
+
+.score {
+  font-size: 72rpx;
+  font-weight: $font-weight-bold;
+  line-height: 1.1;
+}
+
+.score_low { color: $color-score-low; }
+.score_mid { color: $color-score-mid; }
+.score_high { color: $color-score-high; }
+.score_critical { color: $color-score-critical; }
+
+.label {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.levelTag {
+  margin-top: $spacing-sm;
+  padding: 4rpx $spacing-md;
+  border-radius: $radius-round;
+}
+
+.level_low {
+  background: rgba(0, 180, 42, 0.1);
+  .levelText { color: $color-score-low; }
+}
+
+.level_mid {
+  background: rgba(255, 205, 0, 0.15);
+  .levelText { color: $color-score-mid; }
+}
+
+.level_high {
+  background: rgba(255, 125, 0, 0.1);
+  .levelText { color: $color-score-high; }
+}
+
+.level_critical {
+  background: rgba(245, 63, 63, 0.1);
+  .levelText { color: $color-score-critical; }
+}
+
+.levelText {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+}

@@ -1,0 +1,62 @@
+// ============================================
+// 主题配色变量（工厂监控小程序 - 工业科技风）
+// ============================================
+
+// 品牌主题色：科技蓝，传达智能监控专业感
+$color-primary: #1a6dff;
+$color-primary-light: #4d8eff;
+$color-primary-dark: #0e50cc;
+
+// 功能色
+$color-success: #00b42a;
+$color-warning: #ff7d00;
+$color-error: #f53f3f;
+$color-info: #1a6dff;
+
+// 背景色
+$color-bg-page: #f0f4f8;
+$color-bg-card: #ffffff;
+$color-bg-hover: #f2f3f5;
+
+// 文本色
+$color-text-primary: #1d2129;
+$color-text-secondary: #4e5969;
+$color-text-tertiary: #86909c;
+$color-text-disabled: #c9cdd4;
+$color-text-white: #ffffff;
+
+// 边框色
+$color-border: #e5e6eb;
+$color-divider: #f2f3f5;
+
+// ============================================
+// 业务语义色（工厂监控专用）
+// ============================================
+
+// 状态色（在线/离线/告警）
+$color-status-online: #00b42a;
+$color-status-offline: #86909c;
+$color-status-warn: #ff7d00;
+$color-status-alarm: #f53f3f;
+
+// 三色风险标识（安全/预警/报警）
+$color-risk-safe: #00b42a;
+$color-risk-warning: #ff7d00;
+$color-risk-alarm: #f53f3f;
+
+// 安全评分四色（绿/黄/橙/红）
+$color-score-low: #00b42a;
+$color-score-mid: #ffcd00;
+$color-score-high: #ff7d00;
+$color-score-critical: #f53f3f;
+
+// 告警级别背景色
+$color-alarm-urgent-bg: rgba(245, 63, 63, 0.1);
+$color-alarm-warning-bg: rgba(255, 125, 0, 0.1);
+$color-alarm-info-bg: rgba(26, 109, 255, 0.1);
+
+// 主题渐变
+$gradient-primary: linear-gradient(135deg, #1a6dff 0%, #4d8eff 100%);
+$gradient-header: linear-gradient(180deg, #1a6dff 0%, #4d8eff 100%);
+$gradient-bg: linear-gradient(180deg, #f0f4f8 0%, #f5f6f7 100%);
+$gradient-alarm: linear-gradient(135deg, #f53f3f 0%, #ff7d00 100%);

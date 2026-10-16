@@ -1,0 +1,97 @@
+@use '@/styles/variables.scss' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 4rpx $spacing-sm;
+  border-radius: $radius-round;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.text {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  line-height: 1;
+}
+
+.size_sm {
+  padding: 4rpx $spacing-sm;
+  .text {
+    font-size: $font-size-xs;
+  }
+  .dot {
+    width: 12rpx;
+    height: 12rpx;
+  }
+}
+
+.size_md {
+  padding: 8rpx $spacing-md;
+  .text {
+    font-size: $font-size-sm;
+  }
+  .dot {
+    width: 16rpx;
+    height: 16rpx;
+  }
+}
+
+.type_online {
+  background: rgba(0, 180, 42, 0.1);
+  .dot {
+    background: $color-status-online;
+  }
+  .text {
+    color: $color-status-online;
+  }
+}
+
+.type_offline {
+  background: rgba(134, 144, 156, 0.1);
+  .dot {
+    background: $color-status-offline;
+  }
+  .text {
+    color: $color-status-offline;
+  }
+}
+
+.type_alarm,
+.type_urgent {
+  background: rgba(245, 63, 63, 0.1);
+  .dot {
+    background: $color-status-alarm;
+    animation: blink 1s ease-in-out infinite;
+  }
+  .text {
+    color: $color-status-alarm;
+  }
+}
+
+.type_safe {
+  background: rgba(0, 180, 42, 0.1);
+  .dot {
+    background: $color-risk-safe;
+  }
+  .text {
+    color: $color-risk-safe;
+  }
+}
+
+.type_warning {
+  background: rgba(255, 125, 0, 0.1);
+  .dot {
+    background: $color-risk-warning;
+  }
+  .text {
+    color: $color-risk-warning;
+  }
+}

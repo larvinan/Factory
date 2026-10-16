@@ -1,0 +1,257 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding: $spacing-md $spacing-lg $spacing-xl;
+}
+
+// ============== 顶部设备头卡片 ==============
+.headerCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.headerTop {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+.deviceIcon {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: $radius-md;
+  background: rgba(26, 109, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64rpx;
+  flex-shrink: 0;
+}
+
+.headerInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.deviceName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: 4rpx;
+  @include text-ellipsis;
+}
+
+.deviceType {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.headerStatus {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+// ============== 最新读数卡片 ==============
+.latestCard {
+  margin-top: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  &::before {
+    content: '';
+    width: 6rpx;
+    height: 24rpx;
+    background: $color-primary;
+    border-radius: $radius-round;
+  }
+}
+
+.latestContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+}
+
+.latestLeft {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.latestValueWrap {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-xs;
+}
+
+.latestValue {
+  font-size: 64rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  line-height: 1.1;
+
+  &.alarm { color: $color-status-alarm; }
+  &.warning { color: $color-status-warn; }
+}
+
+.latestUnit {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+}
+
+.latestTime {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.latestRisk {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $radius-round;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  &.safe {
+    background: rgba(0, 180, 42, 0.1);
+    color: $color-risk-safe;
+  }
+
+  &.warning {
+    background: rgba(255, 125, 0, 0.1);
+    color: $color-risk-warning;
+  }
+
+  &.alarm {
+    background: rgba(245, 63, 63, 0.1);
+    color: $color-risk-alarm;
+  }
+}
+
+// ============== 历史趋势卡片 ==============
+.historyCard {
+  margin-top: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.historyTabs {
+  display: flex;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-md;
+}
+
+.historyTab {
+  padding: $spacing-xs $spacing-md;
+  background: $color-bg-hover;
+  border-radius: $radius-round;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  transition: all $transition-base;
+
+  &.active {
+    background: rgba(26, 109, 255, 0.1);
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// ============== 设备信息卡片 ==============
+.infoCard {
+  margin-top: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-sm 0;
+  border-bottom: 1rpx solid $color-divider;
+  font-size: $font-size-md;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.infoLabel {
+  color: $color-text-tertiary;
+}
+
+.infoValue {
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+  max-width: 60%;
+  text-align: right;
+  @include text-ellipsis;
+}
+
+// ============== 操作按钮 ==============
+.actionBar {
+  margin-top: $spacing-lg;
+  display: flex;
+  gap: $spacing-md;
+}
+
+.actionBtn {
+  flex: 1;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-bg-hover;
+  color: $color-text-secondary;
+  border: 1rpx solid $color-border;
+  transition: all $transition-base;
+
+  &::after { border: none; }
+
+  &:active {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl * 2 $spacing-lg;
+  color: $color-text-tertiary;
+}
+
+.emptyText {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-top: $spacing-sm;
+}

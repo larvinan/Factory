@@ -1,0 +1,14 @@
+ultralytics==8.2.0
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+opencv-python>=4.8.0
+pyyaml>=6.0
+paho-mqtt>=1.6.0
+
+# Note: rknn-toolkit2 has conflicting dependencies with ultralytics.
+# Install rknn-toolkit2 in a SEPARATE virtual environment:
+# pip install rknn-toolkit2==1.5.2
+# 
+# For RK3568 deployment, use rknnlite:
+# pip install rknnlite==1.5.2
