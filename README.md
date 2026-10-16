@@ -107,7 +107,7 @@ hdc shell su -c /data/rk_uplink
 └── MQTT数据格式.md           # MQTT 上下行接口与数据格式
 ```
 
-> **分支说明**：`main` 分支为硬件侧（STM32 固件 + RK3568 网关 + 项目文档）；前后端平台（Web 前端 / 支付宝小程序 / Spring Boot 后端 / YOLO 服务）位于 **`frontend-backend`** 分支的 `factory_pro/` 目录。
+> **仓库结构**：`main` 分支同时包含硬件侧（STM32 固件 + RK3568 网关 + 项目文档）与前后端平台（`factory_pro/`：Web 前端 Vue3 / 支付宝小程序 Taro4 / Spring Boot 后端 / YOLO 推理服务）。
 
 ---
 
