@@ -30,3 +30,49 @@ rk_rx.bin
 *.log
 build/
 obj/
+
+# ===== 前后端项目（factory_pro/）=====
+# 依赖与构建产物
+node_modules/
+dist/
+.swc/
+.pai/
+target/
+__pycache__/
+*.class
+.idea/
+runs/
+venv/
+.venv/
+.pytest_cache/
+.mimosa/
+
+# 后端运行时产生的图片（上传/检测结果，非源码）
+**/data/images/
+
+# 模型权重 / 数据集（体积大，不入库）
+datasets/
+models/
+hardhat10k/
+*.pt
+*.onnx
+*.weights
+*.h5
+
+# 安装包 / 日志 / 编辑器临时文件
+*.exe
+*.timestamp-*.mjs
+_import_err.txt
+vite_out.txt
+vite_dev.log
+backend_run.log
+inference_run.log
+sim_*.log
+*_run.log
+.last_values
+
+# 重复的数据库备份（仅保留最新一份 factoryguard_backup_20260903_2308.sql）
+factoryguard_backup_20260903_2135.sql
+factoryguard_backup_20260903_2208.sql
+factoryguard_backup_20260903_2304.sql
+factoryguard_backup_20260903_2305.sql

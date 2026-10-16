@@ -1,0 +1,139 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding: $spacing-md $spacing-lg $spacing-xl;
+}
+
+.headerTip {
+  background: rgba(26, 109, 255, 0.06);
+  border: 1rpx solid rgba(26, 109, 255, 0.15);
+  border-radius: $radius-md;
+  padding: $spacing-md $spacing-lg;
+  margin-bottom: $spacing-md;
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.tipIcon {
+  font-size: $font-size-lg;
+}
+
+.tipText {
+  flex: 1;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+}
+
+.settingCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-md $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.cardTitle {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-bottom: $spacing-sm;
+  padding-top: $spacing-sm;
+}
+
+.settingItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md 0;
+  border-bottom: 1rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.itemLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex: 1;
+  min-width: 0;
+}
+
+.itemIcon {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: $radius-sm;
+  background: rgba(26, 109, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  flex-shrink: 0;
+
+  &.danger { background: rgba(245, 63, 63, 0.08); }
+  &.warning { background: rgba(255, 125, 0, 0.08); }
+}
+
+.itemInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemLabel {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  display: block;
+}
+
+.itemDesc {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+  display: block;
+}
+
+// ============== 开关 ==============
+.switch {
+  position: relative;
+  width: 88rpx;
+  height: 48rpx;
+  background: $color-text-disabled;
+  border-radius: $radius-round;
+  transition: all $transition-base;
+  flex-shrink: 0;
+
+  &.active {
+    background: $color-success;
+  }
+
+  &.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+.switchThumb {
+  position: absolute;
+  top: 4rpx;
+  left: 4rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: $color-text-white;
+  border-radius: 50%;
+  transition: all $transition-base;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.15);
+
+  &.active {
+    transform: translateX(40rpx);
+  }
+}
+
+.footerTip {
+  margin-top: $spacing-lg;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  text-align: center;
+  line-height: $line-height-normal;
+}

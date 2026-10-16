@@ -1,0 +1,233 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: $spacing-xl;
+}
+
+// ============== 顶部扫码入口 ==============
+.scanEntry {
+  margin: $spacing-md $spacing-lg;
+  padding: $spacing-lg;
+  background: $gradient-primary;
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  box-shadow: 0 4rpx 16rpx rgba(26, 109, 255, 0.25);
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.scanIcon {
+  width: 80rpx;
+  height: 80rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  flex-shrink: 0;
+}
+
+.scanInfo {
+  flex: 1;
+  color: $color-text-white;
+}
+
+.scanTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  display: block;
+}
+
+.scanDesc {
+  font-size: $font-size-sm;
+  opacity: 0.85;
+  display: block;
+  margin-top: 4rpx;
+}
+
+.scanArrow {
+  color: $color-text-white;
+  font-size: $font-size-lg;
+}
+
+// ============== 搜索栏 ==============
+.searchBar {
+  margin: 0 $spacing-lg $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-round;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  box-shadow: $shadow-card;
+}
+
+.searchIcon {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+}
+
+.searchInput {
+  flex: 1;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+}
+
+// ============== 分类 Tab ==============
+.categoryBar {
+  display: flex;
+  padding: $spacing-sm $spacing-lg;
+  gap: $spacing-sm;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.categoryItem {
+  padding: $spacing-xs $spacing-md;
+  background: $color-bg-hover;
+  border-radius: $radius-round;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  transition: all $transition-base;
+  flex-shrink: 0;
+  border: 2rpx solid transparent;
+
+  &.active {
+    background: rgba(26, 109, 255, 0.1);
+    color: $color-primary;
+    border-color: $color-primary;
+    font-weight: $font-weight-medium;
+  }
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+// ============== 设备列表 ==============
+.list {
+  padding: $spacing-sm $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.deviceItem {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-md $spacing-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.92;
+  }
+}
+
+.deviceIcon {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: $radius-md;
+  background: $color-bg-hover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  flex-shrink: 0;
+}
+
+.deviceContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.deviceName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: 4rpx;
+  @include text-ellipsis;
+}
+
+.deviceMeta {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  flex-wrap: wrap;
+}
+
+.metaText {
+  white-space: nowrap;
+  @include text-ellipsis;
+  max-width: 200rpx;
+}
+
+.deviceValue {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2rpx;
+  padding: 2rpx $spacing-xs;
+  background: rgba(0, 180, 42, 0.08);
+  border-radius: $radius-xs;
+
+  .valueNum {
+    font-size: $font-size-sm;
+    color: $color-status-online;
+    font-weight: $font-weight-semibold;
+  }
+
+  .valueUnit {
+    font-size: $font-size-xs;
+    color: $color-status-online;
+  }
+
+  &.alarm {
+    background: rgba(245, 63, 63, 0.08);
+    .valueNum, .valueUnit { color: $color-status-alarm; }
+  }
+
+  &.offline {
+    background: rgba(134, 144, 156, 0.1);
+    .valueNum, .valueUnit { color: $color-status-offline; }
+  }
+}
+
+.arrowRight {
+  font-size: $font-size-md;
+  color: $color-text-disabled;
+  flex-shrink: 0;
+}
+
+// ============== 空状态 ==============
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl * 2 $spacing-lg;
+  color: $color-text-tertiary;
+}
+
+.emptyIcon {
+  font-size: 96rpx;
+  margin-bottom: $spacing-md;
+}
+
+.emptyText {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+}

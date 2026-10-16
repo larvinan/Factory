@@ -1,0 +1,298 @@
+@use '@/styles/variables.scss' as *;
+
+.dashboard {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a1628, #0f1f3a);
+  padding: 24rpx 24rpx 48rpx;
+  box-sizing: border-box;
+  color: #e6f0ff;
+  font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
+}
+
+/* 顶部标题 */
+.header {
+  padding: 24rpx 8rpx 32rpx;
+}
+
+.title {
+  display: block;
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 4rpx;
+}
+
+.subtitle {
+  display: block;
+  font-size: 24rpx;
+  color: #6b8cae;
+  margin-top: 8rpx;
+  letter-spacing: 2rpx;
+}
+
+/* 统计卡片 */
+.statsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 32rpx;
+}
+
+.statCard {
+  width: 48.5%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+  border-radius: 16rpx;
+  padding: 28rpx 24rpx;
+  margin-bottom: 16rpx;
+  box-sizing: border-box;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.2);
+}
+
+.statValueRow {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.statValue {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.statUnit {
+  font-size: 24rpx;
+  margin-left: 8rpx;
+}
+
+.statLabel {
+  display: block;
+  font-size: 24rpx;
+  color: #8aa2c0;
+  margin-top: 12rpx;
+}
+
+/* 中间区域 */
+.middleSection {
+  display: flex;
+  flex-direction: row;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.panel {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+  border-radius: 16rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.panelTitle {
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 16rpx;
+}
+
+.panelTitleText {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #b8d4f0;
+  letter-spacing: 2rpx;
+}
+
+/* 传感器列表 */
+.sensorList {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.sensorRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10rpx;
+  padding: 16rpx 20rpx;
+}
+
+.sensorName {
+  flex: 1;
+  font-size: 26rpx;
+  color: #c8d8ec;
+}
+
+.sensorValue {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #ffffff;
+  margin-right: 16rpx;
+}
+
+.statusBlock {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 8rpx currentColor;
+}
+
+/* 告警分布 */
+.alarmBars {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  padding: 8rpx 0;
+}
+
+.alarmRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.alarmLabelRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.alarmName {
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
+.alarmCount {
+  font-size: 22rpx;
+  color: #8aa2c0;
+}
+
+.alarmBarBg {
+  height: 16rpx;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.alarmBarFill {
+  height: 100%;
+  border-radius: 8rpx;
+  transition: width 0.4s ease;
+}
+
+/* 底部区域 */
+.bottomSection {
+  display: flex;
+  flex-direction: row;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.detectGrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.detectItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detectValue {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.detectLabel {
+  font-size: 22rpx;
+  color: #8aa2c0;
+  margin-top: 8rpx;
+}
+
+.progressWrap {
+  padding: 8rpx 0;
+}
+
+.progressBg {
+  height: 20rpx;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #00d97e);
+  border-radius: 10rpx;
+  transition: width 0.4s ease;
+}
+
+/* 设备分类 */
+.deviceGrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.deviceCard {
+  flex: 1;
+  min-width: 44%;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12rpx;
+  padding: 20rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deviceIcon {
+  font-size: 40rpx;
+}
+
+.deviceCount {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #00d4ff;
+  margin-top: 8rpx;
+}
+
+.deviceName {
+  font-size: 22rpx;
+  color: #8aa2c0;
+  margin-top: 4rpx;
+}
+
+/* 底部刷新按钮 */
+.footer {
+  padding: 24rpx 0;
+  display: flex;
+  justify-content: center;
+}
+
+.refreshBtn {
+  width: 60%;
+  height: 80rpx;
+  background: linear-gradient(90deg, #1a3a6e, #2a5298);
+  border: 1rpx solid rgba(0, 212, 255, 0.4);
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx rgba(0, 120, 200, 0.3);
+}
+
+.refreshText {
+  font-size: 28rpx;
+  color: #ffffff;
+  letter-spacing: 4rpx;
+}

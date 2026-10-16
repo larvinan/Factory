@@ -1,0 +1,1 @@
+{"name":"高温自动开灯","field":"temp","operator":"gt","threshold":25,"action_method":"relay","action_params":"{\"val\":1}"}

@@ -1,0 +1,164 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: $spacing-xl;
+}
+
+// ============== 用户信息卡片 ==============
+.userCard {
+  margin: $spacing-md $spacing-lg;
+  padding: $spacing-lg;
+  background: $gradient-header;
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  color: $color-text-white;
+  box-shadow: 0 4rpx 16rpx rgba(26, 109, 255, 0.25);
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 4rpx solid rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.nickname {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  margin-bottom: 4rpx;
+  @include text-ellipsis;
+}
+
+.roleTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2rpx $spacing-sm;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: $radius-xs;
+  font-size: $font-size-xs;
+  margin-top: 4rpx;
+}
+
+.metaRow {
+  margin-top: $spacing-xs;
+  font-size: $font-size-sm;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+// ============== 数据统计卡片 ==============
+.statsCard {
+  margin: 0 $spacing-lg $spacing-md;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+  flex: 1;
+
+  &:not(:last-child) {
+    border-right: 1rpx solid $color-divider;
+  }
+}
+
+.statNum {
+  font-size: 40rpx;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  line-height: 1.1;
+}
+
+.statLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+// ============== 菜单列表 ==============
+.menuCard {
+  margin: 0 $spacing-lg $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1rpx solid $color-divider;
+  transition: all $transition-base;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:active {
+    background: $color-bg-hover;
+  }
+}
+
+.menuIcon {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: $radius-sm;
+  background: rgba(26, 109, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  flex-shrink: 0;
+}
+
+.menuContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.menuLabel {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  display: block;
+}
+
+.menuDesc {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.menuArrow {
+  font-size: $font-size-md;
+  color: $color-text-disabled;
+}
+
+.menuBadge {
+  padding: 2rpx $spacing-sm;
+  background: $color-status-alarm;
+  color: $color-text-white;
+  border-radius: $radius-round;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+}

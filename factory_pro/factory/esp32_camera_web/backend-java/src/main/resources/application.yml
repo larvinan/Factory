@@ -1,0 +1,119 @@
+# ============================================
+# FactoryGuard 后端配置 (Spring Boot)
+# ============================================
+
+server:
+  port: 8000
+
+spring:
+  datasource:
+    # 数据库连接全部支持环境变量覆盖：
+    # DB_HOST / DB_PORT / DB_USERNAME / DB_PASSWORD
+    # allowPublicKeyRetrieval=true：MySQL 8 默认认证插件 caching_sha2_password 首次连接
+    # 需要 RSA 公钥交换，不加此参数新环境（含 MySQL 服务重启后）会报
+    # "Public Key Retrieval is not allowed"，后端全部接口 500
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/factoryguard?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:512021lsm}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # 反馈通知邮件（QQ 邮箱 SMTP，465 SSL）
+
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: ${MAIL_USERNAME:3207964878@qq.com}
+    #识别鉴定16位码
+    password: ${MAIL_AUTH_CODE:lbofydijbhetddee}
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 10000
+          writetimeout: 5000
+
+mybatis-plus:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.factoryguard.model
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# ============================================
+# MQTT Broker（RK3568 网关接入）
+# 现场部署时设置环境变量 MQTT_HOST=tcp://192.168.1.100:1883
+# 协议约定见《MQTT数据格式.md》v1.0：MQTT 3.1.1 / 匿名 / QoS 0
+# ============================================
+mqtt:
+  local:
+    host: ${MQTT_HOST:tcp://localhost:1883}
+    client-id: factoryguard-backend-java
+    keepalive: 60
+    topics:
+      # 上行：STM32 → RK3568 → 后端，2 秒一次扁平 JSON
+      sensor-data: factory/sensor/data
+      # 下行：后端 → RK3568 → STM32，{method, params}
+      device-cmd: factory/device/cmd
+      # 以下为视觉检测通道（ai视觉摄像头）
+      camera: fg/+/camera
+    # 上行 topic 不带设备标识（单网关部署），入库用这个设备名
+    default-device-id: rk3568_factory_001
+
+# ============================================
+# 告警阈值（依据《MQTT数据格式.md》2.2 业务逻辑）
+# 气体报警：mq5_ppm > 900 或 mq2_ppm > 300
+# ============================================
+thresholds:
+  temperature-high: 45.0
+  mq5-ppm-high: 900
+  mq2-ppm-high: 300
+  # 照明自动逻辑参考阈值：pir==1 且 ldr_adc > 2000（现场可标定）
+  ldr-dark-threshold: 2000
+  # 设备离线判定：超过 N 秒未收到 factory/sensor/data（上报周期 2s）
+  device-offline-seconds: 90
+  # 告警硬件联动开关：气体超标自动下发 rgb=红 + beep
+  alarm-linkage-enabled: true
+
+# ============================================
+# 数据保留策略（真实硬件 2 秒一帧 ≈ 每天 4.3 万行，需定期清理）
+# ============================================
+data-retention:
+  # 总开关：关闭后不再自动清理
+  enabled: true
+  # sensor_readings / command_logs 保留天数
+  days: 7
+  # 清理扫描间隔（小时），服务启动 30 秒后也会先执行一次
+  sweep-interval-hours: 6
+
+# ============================================
+# 图片存储
+# ============================================
+image:
+  save-dir: data/images
+  raw-retention-days: 7
+  boxed-retention-days: 30
+
+# ============================================
+# 反馈通知邮件接收方（与 spring.mail 同一套环境变量体系）
+# MAIL_NOTIFY_TO：新反馈通知的接收邮箱，留空则回退到发件邮箱自身
+# ============================================
+mail:
+  notify-to: ${MAIL_NOTIFY_TO:3330478134@qq.com}
+
+# ============================================
+# 微信小程序配置
+# ============================================
+wechat:
+  appid: ${WECHAT_APPID:}
+  secret: ${WECHAT_SECRET:}
+
+# ============================================
+# DeepSeek AI 配置
+# ============================================
+deepseek:
+  api-key: sk-86e5c15d1bc44a9091c87c65cb61b34e
+  model: deepseek-chat
+  api-url: https://api.deepseek.com/v1/chat/completions
